@@ -1,0 +1,77 @@
+
+openapi: 3.0.0
+info:
+  title: Customer Data Validation API
+  description: "This document outlines data validation checks, error tracking, and acceptance criteria."
+  version: "1.0"
+
+servers:
+  - url: "https://example.com/api"
+
+paths: {}
+
+components:
+  schemas:
+    DataValidationReport:
+      type: object
+      properties:
+        version:
+          type: string
+          example: "1.0"
+        owner:
+          type: string
+          example: "Data Quality Team"
+        intended_audience:
+          type: string
+          example: "Business Analysts, Data Engineers, Compliance Officers"
+        validation_checks:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              description:
+                type: string
+              impact:
+                type: string
+              risk:
+                type: string
+        error_tracking:
+          type: object
+          properties:
+            reporting:
+              type: string
+              example: "Automated Dashboard"
+            analytics:
+              type: string
+              example: "Error trend analysis and impact assessment."
+            breakdown:
+              type: array
+              items:
+                type: object
+                properties:
+                  test_name:
+                    type: string
+                  priority:
+                    type: string
+                  recommendation:
+                    type: string
+                  action:
+                    type: string
+                  status:
+                    type: string
+                  time:
+                    type: string
+        acceptance_criteria:
+          type: array
+          items:
+            type: string
+          example:
+            - "No missing mandatory columns."
+            - "No schema mismatches."
+            - "Data follows GDPR & PCI DSS guidelines."
+            - "Duplicate records should not exceed 0.01%."
+            - "No unencrypted sensitive data in the system."
+            - "Thresholds should not exceed predefined limits."
+            - "Category values must match business-defined rules."
